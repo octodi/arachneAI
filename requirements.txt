@@ -1,0 +1,10 @@
+setuptools
+python-wappalyzer
+google-generativeai
+virustotal_python
+colorama
+flask_cors
+flask
+lxml
+fuzzywuzzy
+prettytable

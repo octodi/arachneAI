@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple web vulnerability scanner</title>
+    <script type="text/javascript" src="three.r124.min.js"></script>
+    <style>
+        body {
+            background-color: #212529;
+            color: #f8f9fa;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #17a2b8;
+            text-shadow: 1px 1px 3px #000;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #343a40;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            width: 280px;
+            font-size: 1.1em;
+        }
+
+        button[type="submit"] {
+            padding: 12px 25px;
+            margin-top: 20px;
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #138496;
+        }
+
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            text-align: center;
+        }
+
+        .loading-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.8em;
+            color: #17a2b8;
+        }
+    </style>
+    <script>
+        function showLoadingScreen() {
+            document.getElementById('loadingScreen').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <script type="module" src="main.js"></script>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">Scanning, please wait...</div>
+    </div>
+    <h1>Simple Web Vulnerability Scanner</h1>
+
+    <form action="/test_website" method="post" onsubmit="showLoadingScreen()">
+        <label for="website_url">Target URL:</label>
+        <input type="text" id="website_url" name="website_url" placeholder="https://example.com" required>
+        <button type="submit">Scan Now</button>
+    </form>
+    
+</body>
+</html>
